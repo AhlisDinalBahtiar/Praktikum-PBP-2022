@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Tambah Data Produk</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="generateCaptcha()">
+
+    <div class="form-container">
+        <h1>Form Tambah Data Produk</h1>
+        <form id="productForm" onsubmit="return validateForm()">
+            <label for="productName">Nama Produk:</label>
+            <input type="text" id="productName" name="productName">
+
+            <label for="description">Deskripsi:</label>
+            <textarea id="description" name="description"></textarea>
+
+            <label for="category">Kategori:</label>
+            <select id="category" name="category" onchange="updateSubCategory()">
+                <option value="">--Pilih Kategori--</option>
+                <option value="Baju">Baju</option>
+                <option value="Elektronik">Elektronik</option>
+                <option value="Alat Tulis">Alat Tulis</option>
+            </select>
+
+            <label for="subCategory">Sub Kategori:</label>
+            <select id="subCategory" name="subCategory">
+                <option value="">--Pilih Sub Kategori--</option>
+            </select>
+
+            <label for="price">Harga Satuan:</label>
+            <input type="text" id="price" name="price">
+
+            <label>Grosir:</label>
+            <div class="radio-group">
+                <input type="radio" id="wholesaleYes" name="wholesale" value="Yes">
+                <label for="wholesaleYes">Ya</label>
+                <input type="radio" id="wholesaleNo" name="wholesale" value="No">
+                <label for="wholesaleNo">Tidak</label>
+            </div>
+
+            <label for="wholesalePrice">Harga Grosir:</label>
+            <input type="text" id="wholesalePrice" name="wholesalePrice">
+
+            <label>Jasa Kirim:</label>
+            <div class="checkbox-group">
+                <input type="checkbox" id="jne" name="shipping" value="JNE">
+                <label for="jne">JNE</label>
+                <input type="checkbox" id="tiki" name="shipping" value="TIKI">
+                <label for="tiki">TIKI</label>
+                <input type="checkbox" id="sicepat" name="shipping" value="SiCepat">
+                <label for="sicepat">SiCepat</label>
+                <input type="checkbox" id="ninja" name="shipping" value="Ninja Express">
+                <label for="ninja">Ninja Express</label>
+                <input type="checkbox" id="wahana" name="shipping" value="Wahana">
+                <label for="wahana">Wahana</label>
+            </div>
+
+            <label for="captcha">Captcha:</label>
+            <div class="captcha-group">
+                <input type="text" id="captcha" name="captcha" readonly>
+                <input type="text" id="captchaInput" name="captchaInput">
+            </div>
+
+            <div class="button-group">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+    </div>
+
+    <script src="form-validation.js"></script>
+</body>
+</html>
